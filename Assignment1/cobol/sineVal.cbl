@@ -1,0 +1,42 @@
+       IDENTIFICATION DIVISION.
+       *> setup the program id
+       PROGRAM-ID. SINVAL.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           *>DEFINE VARIABLE FOR INPUT SIGNED(S) 2 BEFORE DECIMAL 7 AFTER DECIMAL
+           01 VAL1 PIC S9(2)V9(2) VALUE 1.00.
+           01 VAL2 PIC S9(2)V9(2) VALUE 2.00.
+           01 VAL3 PIC S9(2)V9(2) VALUE 3.00.
+           01 VAL4 PIC S9(2)V9(2) VALUE 4.00.
+           01 VAL5 PIC S9(2)V9(2) VALUE 5.00.
+           *>DEFINE VARIABLE FOR RESULT SIGNED 1 BEFORE DECIMAL 10 AFTER DECIMAL
+           01 RES1 PIC S9(1)V9(10).
+           01 RES2 PIC S9(1)V9(10).
+           01 RES3 PIC S9(1)V9(10).
+           01 RES4 PIC S9(1)V9(10).
+           01 RES5 PIC S9(1)V9(10).
+
+       *> setup the procedure division (like 'main' function)
+       PROCEDURE DIVISION.
+         COMPUTE RES1= FUNCTION SIN(VAL1)
+         MULTIPLY RES1 BY RES1.
+         DISPLAY '1,'RES1.
+
+         COMPUTE RES2= FUNCTION SIN(VAL2)
+         MULTIPLY RES2 BY RES2.
+         DISPLAY '2,'RES2.
+
+         COMPUTE RES3= FUNCTION SIN(VAL3)
+         MULTIPLY RES3 BY RES3.
+         DISPLAY '3,'RES3.
+
+         COMPUTE RES4= FUNCTION SIN(VAL4)
+         MULTIPLY RES4 BY RES4.
+         DISPLAY '4,'RES4.
+
+         COMPUTE RES5= FUNCTION SIN(VAL5)
+         MULTIPLY RES5 BY RES5.
+         DISPLAY '5,'RES5.
+       STOP RUN.
+
